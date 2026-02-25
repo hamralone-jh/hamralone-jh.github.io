@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajaz Hussain Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body, html{width:100%;height:100%;font-family:'Poppins',sans-serif;overflow-x:hidden;background:#0a0a0f;color:white;}
+
+/* NAVBAR */
+nav{
+  width:100%; padding:20px 50px;
+  position:fixed; top:0; left:0;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); z-index:1000;
+  display:flex; justify-content:space-between; align-items:center;
+}
+nav .logo{font-family:'Orbitron',sans-serif;font-size:26px;color:#00f0ff;}
+nav ul{display:flex;gap:30px;list-style:none;font-size:15px;}
+nav ul li{cursor:pointer;transition:0.3s;}
+nav ul li:hover{color:#00f0ff;}
+
+/* HERO */
+.hero{
+  height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg');
+  background-size:cover; background-position:center; color:white; flex-direction:column;
+  overflow:hidden;
+}
+.hero h1{font-size:60px;font-family:'Orbitron',sans-serif;background:linear-gradient(90deg,#0ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:20px;margin-top:10px;color:#ddd;}
+
+/* Explore Arrow */
+.explore{
+  position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+  font-size:32px; color:#00f0ff; cursor:pointer; animation: bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,15px);}}
+
+/* HOME LINKS */
+.home-links{display:flex;flex-direction:column;align-items:center;margin-top:40px;}
+.home-links .link{
+  font-size:28px;margin:15px 0; cursor:pointer; color:#00f0ff; transition:0.3s;
+}
+.home-links .link:hover{color:white;transform:scale(1.05);}
+
+/* PAGE SECTIONS */
+.page{
+  position:absolute; top:0; left:0; width:100%; min-height:100vh;
+  padding:100px 10%; display:none; overflow:auto;
+  animation:fadeIn 0.8s ease-in-out;
+  backdrop-filter:blur(10px);
+  background:rgba(20,20,30,0.6);
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(0,255,255,0.2);
+  color:#ddd;
+}
+.page h1{font-size:40px;margin-bottom:20px;color:#00f0ff;}
+.page p, .page ul{font-size:18px;line-height:1.8;}
+.page ul li{margin:10px 0;}
+.back{margin-top:40px; display:inline-block; padding:12px 25px; border:1px solid #00f0ff; color:#00f0ff; cursor:pointer; transition:0.3s;}
+.back:hover{background:#00f0ff;color:black;}
+
+/* Fade animation */
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* Particle background */
+#particles-js{position:absolute;width:100%;height:100%;top:0;left:0;z-index:0;}
+
+/* Responsive */
+@media(max-width:768px){.hero h1{font-size:42px;} .page h1{font-size:32px;}}
+</style>
+</head>
+<body>
+
+<!-- PARTICLE BACKGROUND -->
+<div id="particles-js"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">AJAZ HUSSAIN</div>
+  <ul>
+    <li onclick="showHome()">Home</li>
+    <li onclick="openPage('innovator')">Innovator</li>
+    <li onclick="openPage('msme')">MSME PPDC</li>
+    <li onclick="openPage('bci')">Brain Computer Interface</li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="home" class="hero">
+  <h1>Ajaz Hussain</h1>
+  <p>Innovator • MSME Contributor • Brain-Computer Interface Researcher</p>
+  <div class="explore" onclick="scrollHomeLinks()">&#x2193;</div>
+  <div class="home-links" id="home-links">
+    <div class="link" onclick="openPage('innovator')">Ajaz Hussain – Innovator</div>
+    <div class="link" onclick="openPage('msme')">Ajaz Hussain – MSME PPDC</div>
+    <div class="link" onclick="openPage('bci')">Ajaz Hussain – Brain Computer Interface</div>
+  </div>
+</div>
+
+<!-- INNOVATOR PAGE -->
+<div class="page" id="innovator">
+  <h1>Ajaz Hussain – Innovator</h1>
+  <p>Ajaz Hussain is a forward-thinking innovator creating solutions that combine technology, human needs, and practical implementation. He focuses on product prototyping, tech research, scalable solutions, and building impactful tools for industry and society.</p>
+  <p>Achievements include prototype launches, industrial collaborations, innovation awards, and tech community mentorship. His philosophy emphasizes execution, measurable impact, and sustainable design.</p>
+  <div class="back" onclick="goHome()">⬅ Back</div>
+</div>
+
+<!-- MSME PAGE -->
+<div class="page" id="msme">
+  <h1>Ajaz Hussain – MSME PPDC</h1>
+  <p>Ajaz contributes to Micro, Small & Medium Enterprises (MSMEs) by integrating technology into operations. His expertise includes:</p>
+  <ul>
+    <li>Product design & process optimization</li>
+    <li>Technology upgradation for small businesses</li>
+    <li>Training programs for entrepreneurship & innovation</li>
+    <li>Supporting local industries to scale sustainably</li>
+  </ul>
+  <p>His efforts modernize workflows, increase productivity, and create new revenue streams for MSMEs.</p>
+  <div class="back" onclick="goHome()">⬅ Back</div>
+</div>
+
+<!-- BCI PAGE -->
+<div class="page" id="bci">
+  <h1>Ajaz Hussain – Brain Computer Interface</h1>
+  <p>Ajaz Hussain is exploring cutting-edge Brain-Computer Interface (BCI) technologies that allow direct communication between humans and machines.</p>
+  <ul>
+    <li>Assistive technologies for people with disabilities</li>
+    <li>EEG-based neurofeedback systems</li>
+    <li>Neuro-rehabilitation tools for clinical applications</li>
+    <li>Human-machine interface design for research and practical usage</li>
+  </ul>
+  <p>His goal is to bridge neuroscience and technology, improving accessibility and human-machine interaction.</p>
+  <div class="back" onclick="goHome()">⬅ Back</div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+/* PARTICLES */
+particlesJS('particles-js',{
+  "particles":{
+    "number":{"value":80,"density":{"enable":true,"value_area":800}},
+    "color":{"value":"#00ffff"},
+    "shape":{"type":"circle"},
+    "opacity":{"value":0.5,"random":true},
+    "size":{"value":3,"random":true},
+    "line_linked":{"enable":true,"distance":150,"color":"#00ffff","opacity":0.4,"width":1},
+    "move":{"enable":true,"speed":2,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false}
+  },
+  "interactivity":{
+    "detect_on":"canvas",
+    "events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}}
+  },
+  "retina_detect":true
+});
+
+/* PAGE NAVIGATION */
+function openPage(pageId){
+  document.getElementById("home").style.display="none";
+  document.getElementById(pageId).style.display="block";
+  window.scrollTo(0,0);
+}
+function goHome(){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById("home").style.display="flex";
+  window.scrollTo(0,0);
+}
+function scrollHomeLinks(){
+  document.getElementById('home-links').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
